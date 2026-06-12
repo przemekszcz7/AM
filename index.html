@@ -1,0 +1,1294 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usługi Księgowe AM – Rakszawa · JDG i Małe Firmy</title>
+    <meta name="description" content="Usługi księgowe dla JDG i małych firm. Prowadzenie KPiR, ryczałt, ZUS, VAT, KSeF. Rakszawa. Tel: 536 257 611" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="https://i.ibb.co/Y4CwJPxT/622792587-2061061024717087-7668291714372362423-n.jpg" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (for Facebook icon only) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+      /* --- COLOR SYSTEM & CONSTANTS --- */
+      :root {
+        --ink: #2A2118;
+        --stone: #5C4F3D;
+        --earth: #8C7A63;
+        --sand: #C4AE8C;
+        --light-sand: #E8DDD0;
+        --page: #F5F0E8;
+        --surface: #FDFAF5;
+        --accent: #7A5C2E;
+        --cream: #FAF7F1;
+        --white: #FFFFFF;
+        
+        /* Tasteful blue and orange accents representing trust and warmth */
+        --accent-blue: #2E4C6D; /* Deep ink-blue / steel slate blue */
+        --accent-orange: #D36B3D; /* Muted terracotta orange / copper rust */
+        
+        --font-serif: 'Crimson Pro', Georgia, serif;
+        --font-sans: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        --max-width: 1080px;
+        --border-radius: 3px;
+        --border-rule: 1px solid var(--light-sand);
+      }
+
+      /* --- RESET & BASIC STYLES --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--page);
+        color: var(--stone);
+        font-family: var(--font-sans);
+        font-weight: 400;
+        line-height: 1.76;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3, h4 {
+        color: var(--ink);
+        font-family: var(--font-serif);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* --- GENERAL LAYOUT --- */
+      .section-container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 24px;
+        width: 100%;
+      }
+
+      .section-label {
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        color: var(--accent-blue);
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        display: block;
+      }
+
+      .section-h2 {
+        font-family: var(--font-serif);
+        font-weight: 400;
+        font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+        letter-spacing: -0.01em;
+        color: var(--ink);
+        line-height: 1.25;
+        margin-bottom: 40px;
+      }
+
+      /* --- SCROLL REVEAL EFFECT --- */
+      .reveal-el {
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      .reveal-el.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal-el {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+
+      /* --- NAVIGATION (Sticky) --- */
+      .sticky-nav {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(245, 240, 232, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: var(--border-rule);
+        height: 72px;
+        display: flex;
+        align-items: center;
+        transition: background 0.3s ease;
+      }
+
+      .nav-container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 24px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 6px;
+        text-decoration: none;
+      }
+
+      .logo-text-light {
+        font-family: var(--font-sans);
+        font-weight: 400;
+        color: var(--earth);
+        font-size: 0.9rem;
+      }
+
+      .logo-text-bold {
+        font-family: var(--font-serif);
+        font-weight: 600;
+        color: var(--ink);
+        font-size: 1.3rem;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .nav-links a {
+        font-family: var(--font-sans);
+        font-weight: 400;
+        font-size: 0.875rem;
+        color: var(--earth);
+        transition: color 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent-blue);
+      }
+
+      .nav-contact {
+        display: flex;
+        align-items: center;
+      }
+
+      .tel-link {
+        font-family: var(--font-sans);
+        font-weight: 600;
+        color: var(--ink);
+        transition: color 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .tel-link:hover {
+        color: var(--accent-orange);
+      }
+
+      .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-family: var(--font-sans);
+        font-weight: 400;
+        font-size: 1.4rem;
+        color: var(--ink);
+        cursor: pointer;
+        padding: 4px;
+      }
+
+      /* --- MOBILE OVERLAY --- */
+      .mobile-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--page);
+        z-index: 1100;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .mobile-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .mobile-close {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        background: none;
+        border: none;
+        font-family: var(--font-sans);
+        font-size: 2rem;
+        color: var(--ink);
+        cursor: pointer;
+        padding: 4px;
+      }
+
+      .mobile-overlay-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+        text-align: center;
+      }
+
+      .mobile-overlay-links a {
+        font-family: var(--font-sans);
+        font-size: 1.35rem;
+        color: var(--stone);
+        transition: color 0.2s ease;
+      }
+
+      .mobile-overlay-links a:hover {
+        color: var(--ink);
+      }
+
+      .mobile-overlay-phone {
+        margin-top: 20px;
+        border-top: var(--border-rule);
+        padding-top: 24px;
+        width: 180px;
+        text-align: center;
+      }
+
+      .mobile-overlay-phone a {
+        font-family: var(--font-sans);
+        font-weight: 600;
+        font-size: 1.3rem;
+        color: var(--ink);
+      }
+
+      /* --- HERO SECTION --- */
+      .hero {
+        background-color: var(--ink);
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.012) 0px,
+          rgba(255, 255, 255, 0.012) 1px,
+          transparent 1px,
+          transparent 80px
+        );
+        min-height: calc(100vh - 72px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: clamp(80px, 16vh, 180px);
+        padding-bottom: 92px;
+        position: relative;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 680px;
+        padding: 0 24px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-label {
+        font-family: var(--font-sans);
+        font-weight: 500;
+        color: var(--sand);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        margin-bottom: 12px;
+      }
+
+      .hero-rule-top {
+        width: 64px;
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent-orange) 0%, var(--accent-blue) 100%);
+        margin: 20px auto;
+      }
+
+      .hero-title {
+        font-family: var(--font-serif);
+        font-weight: 400;
+        color: var(--white);
+        font-size: clamp(3.2rem, 6vw, 5.5rem);
+        letter-spacing: -0.01em;
+        line-height: 1.08;
+        margin-bottom: 24px;
+      }
+
+      .hero-title em {
+        font-style: italic;
+        color: var(--accent-orange);
+      }
+
+      .hero-body {
+        font-family: var(--font-sans);
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 1rem;
+        line-height: 1.76;
+        max-width: 440px;
+        margin: 0 auto 36px auto;
+      }
+
+      .hero-ctas {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        margin-bottom: 36px;
+      }
+
+      .hero-cta-primary {
+        font-family: var(--font-sans);
+        font-weight: 500;
+        color: var(--sand);
+        font-size: 0.95rem;
+        transition: color 0.2s ease, transform 0.2s ease;
+      }
+
+      .hero-cta-primary:hover {
+        color: var(--cream);
+      }
+
+      .hero-cta-secondary {
+        font-family: var(--font-sans);
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.35);
+        font-size: 0.95rem;
+        transition: color 0.2s ease;
+      }
+
+      .hero-cta-secondary:hover {
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      .hero-rule-bottom {
+        width: 200px;
+        border-bottom: 1px solid rgba(196, 174, 140, 0.15);
+        margin: 0 auto 20px auto;
+      }
+
+      .hero-phone {
+        font-family: var(--font-sans);
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.9rem;
+        transition: color 0.2s ease;
+      }
+
+      .hero-phone:hover {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .hero-grounding-band {
+        height: 32px;
+        background-color: var(--page);
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+      }
+
+      /* --- ABOUT SECTION --- */
+      .about-section {
+        background-color: var(--surface);
+        padding: 96px 0;
+        border-bottom: var(--border-rule);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 58fr 42fr;
+        gap: 72px;
+      }
+
+      .about-text-column {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .about-body {
+        margin-bottom: 40px;
+      }
+
+      .about-body p {
+        margin-bottom: 24px;
+        font-size: 1rem;
+        line-height: 1.76;
+        color: var(--stone);
+      }
+
+      .about-body p:last-child {
+        margin-bottom: 0;
+      }
+
+      .features-list {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .features-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+        border-top: var(--border-rule);
+      }
+
+      .features-item:last-child {
+        border-bottom: var(--border-rule);
+      }
+
+      .feature-title {
+        font-family: var(--font-sans);
+        font-weight: 600;
+        color: var(--ink);
+        font-size: 0.95rem;
+      }
+
+      .feature-desc {
+        font-family: var(--font-sans);
+        font-weight: 400;
+        color: var(--earth);
+        font-size: 0.9rem;
+        text-align: right;
+      }
+
+      /* About Card (Right column) */
+      .about-card {
+        background-color: var(--page);
+        border: var(--border-rule);
+        padding: 36px;
+        border-radius: var(--border-radius);
+        align-self: flex-start;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .about-card-quote {
+        font-family: var(--font-serif);
+        font-weight: 400;
+        font-style: italic;
+        font-size: 1.15rem;
+        line-height: 1.7;
+        color: var(--stone);
+      }
+
+      .about-card-rule {
+        border-top: var(--border-rule);
+        width: 100%;
+      }
+
+      .about-card-info {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .about-card-label {
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: 0.8rem;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+        text-transform: uppercase;
+      }
+
+      .about-card-phone {
+        font-family: var(--font-sans);
+        font-weight: 600;
+        font-size: 1.5rem;
+        color: var(--ink);
+        transition: color 0.2s ease;
+        line-height: 1.2;
+      }
+
+      .about-card-phone:hover {
+        color: var(--accent);
+      }
+
+      .about-card-address {
+        font-family: var(--font-sans);
+        font-weight: 400;
+        font-size: 0.85rem;
+        color: var(--earth);
+      }
+
+      /* --- SERVICES (Oferta) SECTION --- */
+      .services-section {
+        background-color: var(--page);
+        padding: 96px 0;
+        border-bottom: var(--border-rule);
+      }
+
+      .services-list {
+        display: flex;
+        flex-direction: column;
+        border-top: var(--border-rule);
+        margin-top: 40px;
+      }
+
+      .service-row {
+        display: flex;
+        align-items: center;
+        padding: 24px 16px;
+        border-bottom: var(--border-rule);
+        transition: background-color 0.3s ease, border-left-color 0.3s ease;
+        cursor: default;
+        margin: 0 -16px;
+        border-left: 3px solid transparent;
+      }
+
+      .service-row:hover {
+        background-color: #EDE8E0;
+      }
+
+      .service-row:nth-child(odd):hover {
+        border-left-color: var(--accent-orange);
+      }
+
+      .service-row:nth-child(even):hover {
+        border-left-color: var(--accent-blue);
+      }
+
+      .service-row-top {
+        display: contents;
+      }
+
+      .service-number {
+        font-family: var(--font-serif);
+        font-weight: 400;
+        color: var(--light-sand);
+        font-size: 2.2rem;
+        line-height: 1;
+        width: 80px;
+        flex-shrink: 0;
+        transition: color 0.3s ease;
+      }
+
+      .service-row:nth-child(odd):hover .service-number {
+        color: var(--accent-orange);
+      }
+
+      .service-row:nth-child(even):hover .service-number {
+        color: var(--accent-blue);
+      }
+
+      .service-name {
+        font-family: var(--font-sans);
+        font-weight: 600;
+        color: var(--ink);
+        font-size: 1rem;
+        width: 250px;
+        flex-shrink: 0;
+        padding-right: 24px;
+      }
+
+      .service-desc {
+        font-family: var(--font-sans);
+        font-weight: 400;
+        color: var(--earth);
+        font-size: 0.9rem;
+        flex-grow: 1;
+      }
+
+      /* --- KSEF CALLOUT SECTION --- */
+      .ksef-section {
+        background-color: var(--ink);
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.012) 0px,
+          rgba(255, 255, 255, 0.012) 1px,
+          transparent 1px,
+          transparent 80px
+        );
+        padding: 96px 0;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+      }
+
+      .ksef-container {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 0 24px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .ksef-label {
+        font-family: var(--font-sans);
+        font-weight: 500;
+        color: var(--sand);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        margin-bottom: 12px;
+        display: block;
+      }
+
+      .ksef-rule {
+        width: 56px;
+        border-bottom: 1px solid rgba(196, 174, 140, 0.25);
+        margin: 20px auto;
+      }
+
+      .ksef-h2 {
+        font-family: var(--font-serif);
+        font-weight: 400;
+        color: var(--white);
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        letter-spacing: -0.01em;
+        line-height: 1.25;
+        margin-bottom: 24px;
+      }
+
+      .ksef-body {
+        font-family: var(--font-sans);
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1rem;
+        line-height: 1.75;
+        max-width: 560px;
+        margin: 0 auto;
+      }
+
+      .ksef-body p {
+        margin-bottom: 20px;
+      }
+
+      .ksef-body p:last-child {
+        margin-bottom: 0;
+      }
+
+      .ksef-cta {
+        display: inline-block;
+        font-family: var(--font-sans);
+        font-weight: 500;
+        color: var(--accent-orange);
+        font-size: 1rem;
+        text-decoration: none;
+        margin-top: 32px;
+        transition: color 0.2s ease, border-color 0.2s ease;
+        border-bottom: 1px solid transparent;
+      }
+
+      .ksef-cta:hover {
+        color: var(--white);
+        border-bottom: 1px solid var(--accent-orange);
+      }
+
+      /* Decorative Legal Symbol (§) */
+      .ksef-symbol-left,
+      .ksef-symbol-right {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: var(--font-serif);
+        font-size: 12rem;
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+        z-index: 1;
+      }
+
+      .ksef-symbol-left {
+        left: 6%;
+        color: rgba(224, 122, 95, 0.04); /* Subtelny ton pomarańczowy */
+      }
+
+      .ksef-symbol-right {
+        right: 6%;
+        color: rgba(46, 76, 109, 0.04); /* Subtelny ton niebieski */
+      }
+
+      /* --- CONTACT (Kontakt) SECTION --- */
+      .contact-section {
+        background-color: var(--surface);
+        padding: 96px 0;
+        border-bottom: var(--border-rule);
+      }
+
+      .contact-grid {
+        max-width: 640px;
+        margin: 0 auto;
+      }
+
+      .contact-info-column {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .contact-body {
+        font-size: 1rem;
+        line-height: 1.76;
+        color: var(--stone);
+        margin-bottom: 32px;
+      }
+
+      .contact-rows {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .contact-row {
+        padding: 20px 0;
+        border-bottom: var(--border-rule);
+      }
+
+      .contact-row:last-child {
+        border-bottom: none;
+      }
+
+      .contact-row-label {
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: 0.7rem;
+        letter-spacing: 0.18em;
+        color: var(--earth);
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      .contact-row-value {
+        font-family: var(--font-sans);
+        font-size: 1.1rem;
+        color: var(--stone);
+      }
+
+      .contact-tel-link {
+        font-weight: 600;
+        color: var(--ink);
+        transition: color 0.2s ease;
+      }
+
+      .contact-tel-link:hover {
+        color: var(--accent-orange);
+      }
+
+      .contact-fb-link {
+        font-weight: 500;
+        color: var(--accent-blue);
+        transition: color 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .contact-fb-link:hover {
+        color: var(--accent-orange);
+      }
+
+      /* Contact Card (Right Column) */
+      .contact-card {
+        background-color: var(--page);
+        border: var(--border-rule);
+        border-radius: var(--border-radius);
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-self: flex-start;
+      }
+
+      .contact-card-label {
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        color: var(--earth);
+        text-transform: uppercase;
+      }
+
+      .contact-card-quote {
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--stone);
+      }
+
+      .contact-card-rule {
+        border-top: var(--border-rule);
+        width: 100%;
+        margin: 4px 0;
+      }
+
+      .contact-hours-bold {
+        font-family: var(--font-sans);
+        font-weight: 400;
+        font-size: 0.875rem;
+        color: var(--earth);
+      }
+
+      .contact-hours-light {
+        font-family: var(--font-sans);
+        font-weight: 400;
+        font-size: 0.875rem;
+        color: var(--sand);
+      }
+
+      /* --- FOOTER --- */
+      .footer {
+        background-color: var(--ink);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 28px 0;
+      }
+
+      .footer-container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+
+      .footer-left {
+        font-family: var(--font-sans);
+        color: var(--sand);
+        font-size: 0.875rem;
+      }
+
+      .footer-center {
+        font-family: var(--font-sans);
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.25);
+        font-size: 0.8rem;
+      }
+
+      .footer-right {
+        font-family: var(--font-sans);
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.2);
+        font-size: 0.8rem;
+      }
+
+      /* --- RESPONSIVE DESIGN & MOBILE OPTIMIZATIONS --- */
+      @media (max-width: 1024px) {
+        .ksef-symbol-left,
+        .ksef-symbol-right {
+          display: none;
+        }
+      }
+
+      @media (max-width: 900px) {
+        /* Section Spacing */
+        section, .about-section, .services-section, .ksef-section, .contact-section {
+          padding: 80px 0;
+        }
+
+        /* 2 Column Grids fold to 1 Column */
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+
+        .about-card {
+          width: 100%;
+          align-self: stretch;
+        }
+      }
+
+      @media (max-width: 768px) {
+        /* Mobile Menu */
+        .nav-links, .nav-contact {
+          display: none;
+        }
+
+        .mobile-menu-toggle {
+          display: block;
+        }
+
+        /* Services List Reflow */
+        .service-row {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 20px 16px;
+          gap: 8px;
+        }
+
+        .service-row-top {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          width: 100%;
+        }
+
+        .service-number {
+          width: auto;
+          font-size: 1.8rem;
+          color: var(--accent); /* Permanent amber on mobile since hover is unavailable */
+        }
+
+        .service-name {
+          width: auto;
+          padding-right: 0;
+          font-size: 1rem;
+        }
+
+        .service-desc {
+          padding-left: 48px;
+          font-weight: 300; /* Lighter weight description on mobile */
+          margin-top: -2px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        /* Footer alignment */
+        .footer-container {
+          flex-direction: column;
+          gap: 12px;
+          text-align: center;
+        }
+
+        /* Features List Reflow */
+        .features-item {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 4px;
+        }
+
+        .feature-desc {
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- NAVIGATION -->
+    <nav class="sticky-nav">
+      <div class="nav-container">
+        <a href="#" class="logo" id="navLogo">
+          <span class="logo-text-light">Usługi Księgowe</span>
+          <span class="logo-text-bold">AM<span style="color: var(--accent-orange);">.</span></span>
+        </a>
+        
+        <div class="nav-links">
+          <a href="#o-mnie">O Mnie</a>
+          <a href="#oferta">Oferta</a>
+          <a href="#ksef">KSeF</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+        
+        <div class="nav-contact">
+          <a href="tel:536257611" class="tel-link">536 257 611</a>
+        </div>
+
+        <button class="mobile-menu-toggle" id="menuToggle" aria-label="Otwórz menu">≡</button>
+      </div>
+    </nav>
+
+    <!-- MOBILE OVERLAY NAVIGATION -->
+    <div class="mobile-overlay" id="mobileOverlay">
+      <button class="mobile-close" id="mobileClose" aria-label="Zamknij">×</button>
+      <div class="mobile-overlay-links">
+        <a href="#o-mnie">O Mnie</a>
+        <a href="#oferta">Oferta</a>
+        <a href="#ksef">KSeF</a>
+        <a href="#kontakt">Kontakt</a>
+        <div class="mobile-overlay-phone">
+          <a href="tel:536257611">536 257 611</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-content reveal-el">
+        <span class="hero-label">Rakszawa · Usługi Księgowe</span>
+        <div class="hero-rule-top"></div>
+        <h1 class="hero-title">
+          Księgowość<br>
+          <em>dla małych firm.</em>
+        </h1>
+        <p class="hero-body">
+          Obsługuję jednoosobowe działalności gospodarcze i małe firmy. Spokojnie, dokładnie i bez biurokratycznego żargonu.
+        </p>
+        <div class="hero-ctas">
+          <a href="#kontakt" class="hero-cta-primary">→ Napisz do mnie</a>
+          <a href="#oferta" class="hero-cta-secondary">→ Sprawdź ofertę</a>
+        </div>
+        <div class="hero-rule-bottom"></div>
+        <a href="tel:536257611" class="hero-phone">536 257 611</a>
+      </div>
+      <!-- Hard Color Cut grounding band at the bottom -->
+      <div class="hero-grounding-band"></div>
+    </header>
+
+    <!-- 01 ABOUT SECTION (O MNIE) -->
+    <section class="about-section" id="o-mnie">
+      <div class="section-container">
+        <div class="about-grid">
+          
+          <!-- Left Column (58%) -->
+          <div class="about-text-column reveal-el">
+            <span class="section-label">01 —— O MNIE</span>
+            <h2 class="section-h2">Księgowość prowadzona osobiście.</h2>
+            <div class="about-body">
+              <p>Prowadzę usługi księgowe dla jednoosobowych działalności i małych firm. Każdego klienta obsługuję osobiście — nie ma tu biura pełnego pracowników ani anonimowych systemów.</p>
+              <p>Moim celem jest to, żebyś rozumiał co się dzieje z finansami swojej firmy i mógł skupić się na swojej pracy, zamiast na papierach.</p>
+            </div>
+            
+            <div class="features-list">
+              <div class="features-item">
+                <span class="feature-title">Obsługa JDG</span>
+                <span class="feature-desc">pełna obsługa jednoosobowych działalności</span>
+              </div>
+              <div class="features-item">
+                <span class="feature-title">Małe firmy</span>
+                <span class="feature-desc">spółki, działalności z pracownikami</span>
+              </div>
+              <div class="features-item">
+                <span class="feature-title">Kontakt bezpośredni</span>
+                <span class="feature-desc">zawsze wiesz z kim rozmawiasz</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column (42%) -->
+          <div class="about-card-column reveal-el">
+            <div class="about-card">
+              <p class="about-card-quote">
+                „Chcę, żebyś miał pewność, że Twoja firma jest zadbana — i żebyś mógł do mnie zadzwonić o każdej sprawie, nie bojąc się, że pytanie jest zbyt małe.”
+              </p>
+              <div class="about-card-rule"></div>
+              <div class="about-card-info">
+                <span class="about-card-label">KONTAKT</span>
+                <a href="tel:536257611" class="about-card-phone">536 257 611</a>
+                <span class="about-card-address">Rakszawa 37-111</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 SERVICES SECTION (OFERTA) -->
+    <section class="services-section" id="oferta">
+      <div class="section-container">
+        <span class="section-label reveal-el">02 —— OFERTA</span>
+        <h2 class="section-h2 reveal-el">Co obejmuje obsługa</h2>
+        
+        <div class="services-list reveal-el">
+          <!-- Row 1 -->
+          <div class="service-row">
+            <div class="service-row-top">
+              <div class="service-number">01</div>
+              <div class="service-name">Prowadzenie KPiR</div>
+            </div>
+            <div class="service-desc">księga przychodów i rozchodów dla JDG</div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="service-row">
+            <div class="service-row-top">
+              <div class="service-number">02</div>
+              <div class="service-name">Ryczałt ewidencjonowany</div>
+            </div>
+            <div class="service-desc">ewidencja i rozliczenia ryczałtowców</div>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="service-row">
+            <div class="service-row-top">
+              <div class="service-number">03</div>
+              <div class="service-name">Rozliczenia ZUS</div>
+            </div>
+            <div class="service-desc">składki, deklaracje, zmiany</div>
+          </div>
+
+          <!-- Row 4 -->
+          <div class="service-row">
+            <div class="service-row-top">
+              <div class="service-number">04</div>
+              <div class="service-name">Deklaracje podatkowe</div>
+            </div>
+            <div class="service-desc">PIT, VAT, JPK</div>
+          </div>
+
+          <!-- Row 5 -->
+          <div class="service-row">
+            <div class="service-row-top">
+              <div class="service-number">05</div>
+              <div class="service-name">Obsługa kadrowo-płacowa</div>
+            </div>
+            <div class="service-desc">pracownicy, umowy, listy płac</div>
+          </div>
+
+          <!-- Row 6 -->
+          <div class="service-row">
+            <div class="service-row-top">
+              <div class="service-number">06</div>
+              <div class="service-name">Zakładanie działalności</div>
+            </div>
+            <div class="service-desc">pomoc przy rejestracji firmy</div>
+          </div>
+
+          <!-- Row 7 -->
+          <div class="service-row">
+            <div class="service-row-top">
+              <div class="service-number">07</div>
+              <div class="service-name">KSeF</div>
+            </div>
+            <div class="service-desc">wdrożenie Krajowego Systemu e-Faktur</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KSEF CALLOUT SECTION -->
+    <section class="ksef-section" id="ksef">
+      <!-- Decorative Backdrop Legal Symbols -->
+      <div class="ksef-symbol-left">§</div>
+      <div class="ksef-symbol-right">§</div>
+
+      <div class="ksef-container reveal-el">
+        <span class="ksef-label">WAŻNE DLA TWOJEJ FIRMY</span>
+        <div class="ksef-rule"></div>
+        <h2 class="ksef-h2">KSeF – wsparcie przy wdrożeniu</h2>
+        <div class="ksef-body">
+          <p>Krajowy System e-Faktur to duża zmiana dla przedsiębiorcy. Jeśli prowadzisz małą firmę i nie wiesz, od czego zacząć — pomogę Ci przejść przez ten proces spokojnie i bez stresu.</p>
+          <p>Zadbam o to, aby Twoja firma była gotowa na nowe obowiązki. Wszystko odbędzie się w przyjaznej atmosferze, z pełnym wsparciem na każdym etapie.</p>
+        </div>
+        <a href="#kontakt" class="ksef-cta" id="ksefCta">Skontaktuj się — działaj bez obaw →</a>
+      </div>
+    </section>
+
+    <!-- 03 CONTACT SECTION (KONTAKT) -->
+    <section class="contact-section" id="kontakt">
+      <div class="section-container">
+        <div class="contact-grid">
+          
+          <!-- Contact Info -->
+          <div class="contact-info-column reveal-el">
+            <span class="section-label">03 —— KONTAKT</span>
+            <h2 class="section-h2">Napisz lub zadzwoń.</h2>
+            <p class="contact-body">
+              Działam w Rakszawie i przyjmuję klientów z okolicy. Kontakt telefoniczny lub przez Facebooka — odpowiem szybko.
+            </p>
+            
+            <div class="contact-rows">
+              <div class="contact-row">
+                <span class="contact-row-label">TELEFON</span>
+                <div class="contact-row-value">
+                  <a href="tel:536257611" class="contact-tel-link">536 257 611</a>
+                </div>
+              </div>
+              
+              <div class="contact-row">
+                <span class="contact-row-label">LOKALIZACJA</span>
+                <div class="contact-row-value">Rakszawa 37-111</div>
+              </div>
+              
+              <div class="contact-row">
+                <span class="contact-row-label">FACEBOOK</span>
+                <div class="contact-row-value">
+                  <a href="https://www.facebook.com/profile.php?id=61586949548535" target="_blank" rel="noopener noreferrer" class="contact-fb-link">
+                    <i class="fa-brands fa-facebook"></i> Usługi Księgowe AM <span class="arrow">→</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-left">Usługi Księgowe AM<span style="color: var(--accent-orange);">.</span></div>
+        <div class="footer-center">Rakszawa · JDG i małe firmy</div>
+        <div class="footer-right">© 2025</div>
+      </div>
+    </footer>
+
+    <!-- INTERACTIVITY & INTERSECTION OBSERVER SCRIPT -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // --- MOBILE NAV OVERLAY TOGGLE ---
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileClose = document.getElementById('mobileClose');
+        const overlayLinks = document.querySelectorAll('.mobile-overlay-links a');
+
+        if (menuToggle && mobileOverlay && mobileClose) {
+          const openMenu = () => {
+            mobileOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          };
+
+          const closeMenu = () => {
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          };
+
+          menuToggle.addEventListener('click', openMenu);
+          mobileClose.addEventListener('click', closeMenu);
+
+          overlayLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+          });
+        }
+
+        // --- SUBTLE SCROLL REVEAL (Intersect Observer) ---
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        const elementsToReveal = document.querySelectorAll('.reveal-el');
+        elementsToReveal.forEach(el => {
+          revealObserver.observe(el);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "Usługi Księgowe AM",
+  "description": "Biuro rachunkowości dla jednoosobowych działalności gospodarczych i małych firm w Rakszawie. Osobiste podejście, KPiR, ryczałt, ZUS, pomoc w ewidencji i KSeF.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
